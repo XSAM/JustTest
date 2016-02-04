@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     void Start () 
 	{
         rigidbody = GetComponent<Rigidbody>();
+        transform.position=new Vector3(5f, 1f, 0f);
+        transform.Rotate(new Vector3(0f, 160f, 0f));
     }
     
     void Update()
