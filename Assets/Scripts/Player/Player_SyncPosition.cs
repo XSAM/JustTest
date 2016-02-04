@@ -34,7 +34,7 @@ public class Player_SyncPosition : NetworkBehaviour
         syncRotate = rotate;
     }
     
-    [ClientCallbackAttribute]
+    [ClientAttribute]
     void TransmitPosition()
     {
         if(isLocalPlayer)
