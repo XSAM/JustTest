@@ -12,7 +12,7 @@ public class Player_NetworkSetup : NetworkBehaviour
 	   if(isLocalPlayer)
        {
             GetComponent<Player_Movement>().enabled = true;
-        }
+       }
 	}
 	
 }

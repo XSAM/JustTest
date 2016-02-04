@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 public class Player_SyncPosition : NetworkBehaviour 
 {
     [SyncVarAttribute]private Vector3 syncPosition;
+    [SyncVarAttribute]private Quaternion syncRotate;
 
     [SerializeField]
     private float lerpRate = 15f;
@@ -22,13 +23,15 @@ public class Player_SyncPosition : NetworkBehaviour
         if(!isLocalPlayer)
         {
             transform.position = Vector3.Lerp(transform.position, syncPosition, lerpRate + Time.deltaTime);
+            transform.rotation=syncRotate;
         }
     }
-    
+
     [CommandAttribute]
-    void CmdProvidePositionToServer(Vector3 position)
+    void CmdProvidePositionToServer(Vector3 position,Quaternion rotate)
     {
         syncPosition = position;
+        syncRotate = rotate;
     }
     
     [ClientCallbackAttribute]
@@ -36,7 +39,7 @@ public class Player_SyncPosition : NetworkBehaviour
     {
         if(isLocalPlayer)
         {
-            CmdProvidePositionToServer(transform.position);
+            CmdProvidePositionToServer(transform.position,transform.rotation);
         }
     }
 }
