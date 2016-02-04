@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking;
 
-public class PlayerNetworkSetup : NetworkBehaviour 
+public class Player_NetworkSetup : NetworkBehaviour 
 {
 
 	// Use this for initialization
@@ -11,7 +11,7 @@ public class PlayerNetworkSetup : NetworkBehaviour
 	{
 	   if(isLocalPlayer)
        {
-            GetComponent<PlayerMovement>().enabled = true;
+            GetComponent<Player_Movement>().enabled = true;
         }
 	}
 	

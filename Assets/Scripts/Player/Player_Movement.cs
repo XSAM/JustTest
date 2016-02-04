@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerMovement : MonoBehaviour 
+public class Player_Movement : MonoBehaviour 
 {
     public float moveSpeed =10f;
     public float turnSpeed = 180f;
