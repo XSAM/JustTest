@@ -22,7 +22,7 @@ public class Player_SyncPosition : NetworkBehaviour
     {
         if(!isLocalPlayer)
         {
-            transform.position = Vector3.Lerp(transform.position, syncPosition, lerpRate + Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, syncPosition, lerpRate * Time.deltaTime);
             transform.rotation=syncRotate;
         }
     }
@@ -39,6 +39,7 @@ public class Player_SyncPosition : NetworkBehaviour
     {
         if(isLocalPlayer)
         {
+            //Debug.Log(transform.position);
             CmdProvidePositionToServer(transform.position,transform.rotation);
         }
     }
